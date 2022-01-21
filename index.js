@@ -14,7 +14,7 @@ const hbs= require('express-handlebars');
 //app.use(logger);
 
 app.set('view engine', 'hbs')
-hbs.registerPartials()
+//hbs.registerPartials()
 
 
 //Body Parser
