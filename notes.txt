@@ -1,0 +1,2 @@
+//Static server is the one that serves html, css, images, etc
+//we made the entire folder static, so we wont have to write separate get fn to send data
