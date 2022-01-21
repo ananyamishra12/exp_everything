@@ -3,7 +3,8 @@ const app= express();
 const path= require('path');
 const PORT= process.env.PORT || 5000;
 const logger=require('./logger');
-const hbs= require('express-handlebars');
+const exphbs = require('express-handlebars');
+const members = require('./Members');
 
 // app.get("/", (req, res)=>{
 //     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -12,10 +13,15 @@ const hbs= require('express-handlebars');
 
 //Initializing middleware
 //app.use(logger);
+app.engine('handlebars', exphbs.engine());
+app.set('view engine', 'handlebars');
 
-app.set('view engine', 'hbs')
-//hbs.registerPartials()
-
+app.get('/', (req, res) =>
+  res.render('index', {
+    title: 'Member App',
+    members
+  })
+);
 
 //Body Parser
 app.use(express.json());
